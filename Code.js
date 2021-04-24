@@ -1,6 +1,8 @@
-var formApp = FormApp.openById('1JgSfvslqmpa8SLP25ny2PlwNbwMplRV5xJTUI6XFoag'); 
-var responseSpreadsheet = SpreadsheetApp.openById('15002B7xr2Ui-PnteCws6bXt2RKjfLhcxxHW-dEj-yxU');
-var settingsSpreadsheet = SpreadsheetApp.openById('1YJYilISU7lLQ4p9_KZMZApqVv3OnffrN73ahe6l9XQ4');
+
+
+var formApp = FormApp.openById(ScriptProperties.getProperty('formID')); 
+var responseSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('responseID'));
+var settingsSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('settingsID'));
 
 function GetItemIDs(){
   var allItems = formApp.getItems();
@@ -14,34 +16,22 @@ function GetItemIDs(){
   //formApp.getItemById
   var item = formApp.getItemById('2129281706').asMultipleChoiceItem();
   item.setChoices([
-    item.createChoice('April 24 3:00 PM'),
+    item.createChoice('April 27 3:00 PM'),
     item.createChoice('April 25 10:00 AM'),
     item.createChoice('April 26 1:00 PM')
   ]);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-var form = FormApp.getActiveForm();
-// var sheet = SpreadsheetApp.openById('1YJYilISU7lLQ4p9_KZMZApqVv3OnffrN73ahe6l9XQ4');
-// var sheetID = '1YJYilISU7lLQ4p9_KZMZApqVv3OnffrN73ahe6l9XQ4';
-// var calendarID = 'ltggfh0v89ln3l0i1dnr96v8ro@group.calendar.google.com'
-// var calendar = CalendarApp.getCalendarById(calendarID);
-
-
-function SetAppProperites(){
-  ScriptProperties.setProperty('ResponseSheet',{type: 'Sheet', id: '1YJYilISU7lLQ4p9_KZMZApqVv3OnffrN73ahe6l9XQ4'});
-  ScriptProperties.setProperty('SharedCalendar', {type: 'Calendar', id: 'ltggfh0v89ln3l0i1dnr96v8ro@group.calendar.google.com'})
+function SetScriptProperties(){
+  Logger.log(ScriptProperties.getProperties());
 }
+
+function Test(){
+  var formID = ScriptProperties.getProperty('formID');
+  Logger.log(formID);
+}
+
+
 
 function ConnectSheet(){
 
@@ -67,12 +57,6 @@ function myFunction() {
   //ScriptProperties.setProperty('sheetID', sheetID);
   //Logger.log(ScriptProperties.getProperties()['sheetID']);
   //ScriptProperties.setProperty("calendarID", calendarID);
-  var testObject = {
-    type: 'graph',
-    id: 'ltggfh0v89ln3l0i1dnr96v8ro@group.calendar.google.com',
-    sheet: 'Test'
-  }
-  ScriptProperties.setProperty('test',testObject);
 }
 
 function ViewScriptProperties(){
