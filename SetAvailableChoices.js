@@ -1,6 +1,4 @@
-// var formApp = FormApp.openById(ScriptProperties.getProperty('formID')); 
-// var responseSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('responseID'));
-// var settingsSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('settingsID'));
+
 
 function SetAvailableChoices(){
   var item = formApp.getItemById('2129281706').asMultipleChoiceItem();
