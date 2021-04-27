@@ -1,6 +1,7 @@
 var formApp = FormApp.openById(ScriptProperties.getProperty('formID')); 
 var responseSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('responseID'));
 var settingsSpreadsheet = SpreadsheetApp.openById(ScriptProperties.getProperty('settingsID'));
+var calendar = CalendarApp.getCalendarById(ScriptProperties.getProperty('calendarID'));
 
 
 
